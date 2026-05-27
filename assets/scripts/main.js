@@ -64,15 +64,15 @@ function initializeServiceWorker() {
     // B2: wait for page load
     window.addEventListener('load', () => {
       // B3: register sw.js
-      navigator.serviceWorker.register('./sw.js')
-        .then((registration) => {
-          // B4: success
-          console.log("Service Worker registered successfully:", registration);
-        })
-        .catch((error) => {
-          // B5: failure
-          console.error("Service Worker registration failed:", error);
-        });
+      navigator.serviceWorker.register('/Lab8-Starter/sw.js')
+      .then((registration) => {
+        // B4: success
+        console.log("Service Worker registered successfully:", registration);
+      })
+      .catch((error) => {
+        // B5: failure
+        console.error("Service Worker registration failed:", error);
+      });
     });
   }
 
