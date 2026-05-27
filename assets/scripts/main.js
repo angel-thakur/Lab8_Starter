@@ -55,21 +55,26 @@ function initializeServiceWorker() {
   //            log that it has failed.
   // STEPS B6 ONWARDS WILL BE IN /sw.js
   function initializeServiceWorker() {
-  if (!('serviceWorker' in navigator)) {
-    console.log("Service Workers are not supported in this browser.");
-    return;
-  }
-
-  window.addEventListener('load', async () => {
-    try {
-      const registration = await navigator.serviceWorker.register('./sw.js');
-
-      console.log("Service Worker registered successfully:", registration);
-    } catch (err) {
-      console.error("Service Worker registration failed:", err);
+   // B1: check support
+    if (!('serviceWorker' in navigator)) {
+      console.log("Service Workers not supported");
+      return;
     }
-  });
-}
+
+    // B2: wait for page load
+    window.addEventListener('load', () => {
+      // B3: register sw.js
+      navigator.serviceWorker.register('./sw.js')
+        .then((registration) => {
+          // B4: success
+          console.log("Service Worker registered successfully:", registration);
+        })
+        .catch((error) => {
+          // B5: failure
+          console.error("Service Worker registration failed:", error);
+        });
+    });
+  }
 }
 
 /**
