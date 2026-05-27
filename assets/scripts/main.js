@@ -54,7 +54,7 @@ function initializeServiceWorker() {
   // B5. TODO - In the event that the service worker registration fails, console
   //            log that it has failed.
   // STEPS B6 ONWARDS WILL BE IN /sw.js
-  function initializeServiceWorker() {
+  
    // B1: check support
     if (!('serviceWorker' in navigator)) {
       console.log("Service Workers not supported");
@@ -75,7 +75,7 @@ function initializeServiceWorker() {
         });
     });
   }
-}
+
 
 /**
  * Reads 'recipes' from localStorage and returns an array of
